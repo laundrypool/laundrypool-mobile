@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "426675357852",
+    "firebase_url": "https://laundrypool-07.firebaseio.com",
+    "project_id": "laundrypool-07",
+    "storage_bucket": "laundrypool-07.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:426675357852:android:65b64427b7a71a0d0fc559",
+        "android_client_info": {
+          "package_name": "com.laundrypool"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "426675357852-p91fivggqa8i38com80obg61ijdg1kkb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyALW48xChrqYCOV1hrh43iarFgACy7XlUI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "426675357852-p91fivggqa8i38com80obg61ijdg1kkb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
