@@ -42,8 +42,13 @@ export const styles = StyleSheet.create({
     color: ColorPallete.fontColors.disabled,
   },
   activeBorder: {
-    borderTopWidth: 2,
-    width: '50%',
+    position: 'absolute',
+    width: '20%',
+    height: '100%',
+    top: 5,
+    left: 0,
+    borderRadius: 4,
+    borderBottomWidth: 4,
     borderColor: ColorPallete.colors.primary,
   },
   disabledBorder: {
@@ -52,7 +57,7 @@ export const styles = StyleSheet.create({
     borderColor: ColorPallete.colors.disabled,
   },
   tabBody: {
-    marginTop: 20,
+    marginTop: 90,
   },
   inputBody: {
     height: 40,
@@ -60,6 +65,6 @@ export const styles = StyleSheet.create({
     borderBottomWidth: 1,
     fontFamily: fonts.seogeUI,
     fontSize: fontSize.in17,
-    color: ColorPallete.fontColors.darkGrey
+    color: ColorPallete.fontColors.darkGrey,
   },
 });

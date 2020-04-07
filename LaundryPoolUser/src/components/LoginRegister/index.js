@@ -1,19 +1,37 @@
-import React, {useState, useEffect} from 'react';
-import {Text, View, TouchableOpacity, TextInput} from 'react-native';
+import React, {useState, useEffect, useRef } from 'react';
+import {Text, View, TouchableOpacity, TextInput, Animated} from 'react-native';
 import {styles} from './styles';
 import PreLoginLogo from '../commonComponents/PreLoginLogo';
 import {globalStyles} from '../commonComponents/commonStyles';
 import CustomButton from '../commonComponents/CustomButton';
 import {ColorPallete} from '../../Utils/StylingInfo';
 
-const LoginRegister = props => {
+const LoginRegister = (props) => {
   const [tabKey, setTabKey] = useState('0');
+  const [active, setactive] = useState(0);
+  const [tabOne, setTabOne] = useState(0);
+  const [tabTwo, setTabTwo] = useState(0);
+  const [translateX, settranslateX] = useState(new Animated.Value(0));
+
+  const elementRef = useRef();
+
+  const handleSlide = (type) => {
+    Animated.spring(translateX, {
+      toValue: type,
+      duration: 100,
+      useNativeDriver: true,
+    }).start();
+  };
 
   useEffect(() => {
     setTabKey(props.navigation.state.params.tabkey);
+    if( props.navigation.state.params.tabkey != '1'){
+      handleSlide(117);
+    }
+    
   }, [props.navigation.state.params.tabkey]);
 
-  handleSubmit = () => {
+  const handleSubmit = () => {
     props.navigation.navigate('Epics');
   };
 
@@ -25,33 +43,63 @@ const LoginRegister = props => {
         </View>
         <View style={styles.bottomContainer}>
           <View style={{width: 260, alignSelf: 'center'}}>
-            <View style={styles.tabHeadingContainer}>
-              <TouchableOpacity
-                style={styles.tabStyle}
-                onPress={() => setTabKey('1')}>
-                <View>
-                  <Text
-                    style={
-                      tabKey == 1 ? styles.tabHeading : styles.disabledHeading
-                    }>
-                    Login
-                  </Text>
-                  {tabKey == 1 && <View style={styles.activeBorder} />}
-                </View>
-              </TouchableOpacity>
-              <TouchableOpacity
-                style={styles.tabStyle}
-                onPress={() => setTabKey('2')}>
-                <View>
-                  <Text
-                    style={
-                      tabKey == 2 ? styles.tabHeading : styles.disabledHeading
-                    }>
-                    Register
-                  </Text>
-                  {tabKey == 2 && <View style={styles.activeBorder} />}
-                </View>
-              </TouchableOpacity>
+            <View style={{flex: 1}}>
+              <View
+                style={{
+                  flexDirection: 'row',
+                  marginTop: 40,
+                  marginBottom: 20,
+                  height: 36,
+                  position: 'relative',
+                }}>
+                <Animated.View
+                  style={[
+                    styles.activeBorder,
+                    {
+                      transform: [
+                        {
+                          translateX,
+                        },
+                      ],
+                    },
+                  ]}
+                />
+                <TouchableOpacity
+                  style={styles.tabStyle}
+                  onLayout={(event) => setTabOne(event.nativeEvent.layout.x)}
+                  onPress={() => {
+                    setTabKey('1');
+                    setactive(0);
+                    handleSlide(tabOne);
+                  }}>
+                  <View>
+                    <Text
+                      style={
+                        tabKey == 1 ? styles.tabHeading : styles.disabledHeading
+                      }>
+                      Login
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+                <TouchableOpacity
+                  style={styles.tabStyle}
+                  onLayout={(event) => setTabTwo(event.nativeEvent.layout.x)}
+                  ref={elementRef}
+                  onPress={() => {
+                    setTabKey('2');
+                    setactive(1);
+                    handleSlide(tabTwo);
+                  }}>
+                  <View>
+                    <Text
+                      style={
+                        tabKey == 2 ? styles.tabHeading : styles.disabledHeading
+                      }>
+                      Register
+                    </Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
             </View>
 
             <View style={styles.tabBody}>
@@ -73,7 +121,7 @@ const LoginRegister = props => {
                   <CustomButton
                     title="Login"
                     btnWidth="80"
-                    onPress={() => this.handleSubmit()}
+                    onPress={() => handleSubmit()}
                   />
                 </>
               )}
@@ -101,7 +149,7 @@ const LoginRegister = props => {
                     />
                   </View>
                   <CustomButton
-                    onPress={() => this.handleSubmit()}
+                    onPress={() => handleSubmit()}
                     title="Register"
                     btnWidth="80"
                   />
