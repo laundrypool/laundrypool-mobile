@@ -2,37 +2,39 @@ import React from 'react';
 import {View, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {ColorPallete, fonts} from '../../Utils/StylingInfo';
 import CustomIcon from '../../Utils/CustomIcon';
 import Dashboard from './Dashboard';
+import Booking from './Booking';
+import MyAccount from './MyAccounts';
 
 const MaterialBottomTabs = createMaterialBottomTabNavigator();
 
 const Epics = () => {
   return (
-    <NavigationContainer>
+    <>
       <MaterialBottomTabs.Navigator
         activeColor={ColorPallete.colors.primary}
-        barStyle={{backgroundColor: ColorPallete.colors.white}}
-        >
+        barStyle={{backgroundColor: ColorPallete.colors.white}}>
+
+
         <MaterialBottomTabs.Screen
-          name="Tab 1"
+          name="Dashboard"
           component={Dashboard}
           options={{
             tabBarLabel: null,
+            headerShown: false,
             tabBarIcon: ({color}) => (
-              <CustomIcon
-                color={color}
-                size={25}
-                name={'home'}
-              />
+              <CustomIcon color={color} size={25} name={'home'} />
             ),
           }}
         />
+
+
         <MaterialBottomTabs.Screen
-          name="Tab 2"
-          component={Dashboard}
+          name="Booking"
+          component={Booking}
           options={{
             tabBarLabel: null,
             tabBarIcon: ({color}) => (
@@ -45,9 +47,11 @@ const Epics = () => {
             ),
           }}
         />
+
+
         <MaterialBottomTabs.Screen
-          name="Tab 3"
-          component={Dashboard}
+          name="MyAccount"
+          component={MyAccount}
           options={{
             tabBarLabel: null,
             tabBarIcon: ({color}) => (
@@ -60,8 +64,10 @@ const Epics = () => {
             ),
           }}
         />
+
+
       </MaterialBottomTabs.Navigator>
-    </NavigationContainer>
+    </>
   );
 };
 

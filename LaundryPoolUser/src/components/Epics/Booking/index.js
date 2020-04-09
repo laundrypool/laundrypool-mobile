@@ -1,19 +1,35 @@
 import React from 'react';
+import {Text, View} from 'react-native';
+import Notification from '../Notification';
 import {createStackNavigator} from '@react-navigation/stack';
-import Feed from './Feed';
 import NotificationPage from '../Notification/NotificationPage';
 import CustomHeader from '../../commonComponents/CustomHeader';
+
 const Stack = createStackNavigator();
-const Dashboard = props => {
+
+const BookingComponent = props => {
+  return (
+    <View
+      style={{
+        alignItems: 'center',
+      }}>
+      <Text>Booking - Coming Soon</Text>
+      <Notification {...props} />
+    </View>
+  );
+};
+
+const Booking = props => {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="Feed"
+        name="BookingComponent"
         options={{
-          headerShown: false,
+          headerShown: true,
         }}>
-        {props => <Feed {...props} />}
+        {props => <BookingComponent {...props} />}
       </Stack.Screen>
+
       <Stack.Screen
         name="Notification"
         options={{
@@ -24,15 +40,15 @@ const Dashboard = props => {
                 {...props}
                 title="Notifications"
                 viewNotification={true}
-                backTo = "Feed"
               />
             );
           },
-        }}>
+        }}
+        >
         {props => <NotificationPage {...props} />}
       </Stack.Screen>
     </Stack.Navigator>
   );
 };
 
-export default Dashboard;
+export default Booking;
