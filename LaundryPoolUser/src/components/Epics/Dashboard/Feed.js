@@ -43,7 +43,7 @@ const FeedView = props => {
         backgroundColor: ColorPallete.backgroundColors.main,
       }}>
       <View
-        style={{
+        style={{ 
           zIndex: 3,
           position: 'relative',
           flex: 1.5,
