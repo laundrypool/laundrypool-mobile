@@ -1,43 +1,44 @@
-import 'react-native-gesture-handler';
 import React from 'react';
 import {StatusBar} from 'react-native';
-import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
 import Home from './src/components/Home';
 import LoginRegister from './src/components/LoginRegister';
 import Epics from './src/components/Epics';
 
-// gradlew assembleRelease -x bundleReleaseJsAndAssets  
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
+import { ColorPallete } from './src/Utils/StylingInfo';
 
-const AppNavigator = createStackNavigator({
-  Home: {
-    screen: Home,
-    navigationOptions: {
-      headerShown: false,
-    },
-  },
-  LoginRegister: {
-    screen: LoginRegister,
-    navigationOptions: {
-      headerShown: false,
-    },
-  },
-  Epics: {
-    screen: Epics,
-    navigationOptions: {
-      headerShown: false,
-    },
-  },
-});
+// gradlew assembleRelease -x bundleReleaseJsAndAssets
 
-const AppContainer = createAppContainer(AppNavigator);
+const Stack = createStackNavigator();
 
 const App: () => React$Node = () => {
   return (
-    <>
-      <StatusBar barStyle="dark-content" backgroundColor="#DBDBDB" />
-      <AppContainer />
-    </>
+    <NavigationContainer>
+      <StatusBar barStyle="dark-content" backgroundColor={ColorPallete.backgroundColors.main} />
+      {/* <AppContainer /> */}
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          options={{
+            headerShown: false,
+          }}>
+          {props => <Home {...props} />}
+        </Stack.Screen>
+
+        <Stack.Screen
+          name="LoginRegister"
+          options={{
+            headerShown: false,
+          }}>
+          {props => <LoginRegister {...props} />}
+        </Stack.Screen>
+
+        <Stack.Screen name="Epics" options={{headerShown: false}}>
+          {props => <Epics {...props} />}
+        </Stack.Screen>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 

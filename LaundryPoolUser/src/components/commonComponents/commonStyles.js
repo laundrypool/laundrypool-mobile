@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native';
-import {ColorPallete, fonts} from '../../Utils/StylingInfo';
+import {ColorPallete, fonts, fontSize} from '../../Utils/StylingInfo';
 
 let btn = {
   height: 53,
@@ -9,6 +9,7 @@ let btn = {
   fontSize: 18,
   borderColor: ColorPallete.colors.primary,
   borderWidth: 2,
+  elevation: 4,
 };
 
 let btnText = {
@@ -18,22 +19,22 @@ let btnText = {
 
 export const globalStyles = StyleSheet.create({
   mT10: {
-    marginTop: 10
+    marginTop: 10,
   },
   mT20: {
-    marginTop: 20
+    marginTop: 20,
   },
   mT30: {
-    marginTop: 30
+    marginTop: 30,
   },
   mT40: {
-    marginTop: 40
+    marginTop: 40,
   },
   mB20: {
-    marginBottom: 20
+    marginBottom: 20,
   },
   mB40: {
-    marginBottom: 40
+    marginBottom: 40,
   },
   logoContainer: {
     position: 'relative',
@@ -58,9 +59,36 @@ export const globalStyles = StyleSheet.create({
   blankBtn: {
     ...btn,
     shadowColor: ColorPallete.backgroundColors.primaryButton,
+    elevation: 0,
   },
   blankBtnText: {
     ...btnText,
     color: ColorPallete.colors.primary,
   },
+  headerBackground: {
+    height: 60,
+    elevation: 6,
+    backgroundColor: ColorPallete.colors.white,
+    position: 'relative',
+    flexDirection: 'row',
+    alignItems: 'center', // Centered horizontally
+  },
+  headerIcon: {
+    flex: 1,
+  },
+  headerText: {
+    flex: 5,
+    fontFamily: fonts.seogeUISemiBold,
+    fontSize: fontSize.in20
+  },
+  orderBox:{
+    backgroundColor:ColorPallete.colors.white,
+    flex:1,
+    flexDirection: 'row',
+    paddingVertical: 20,
+    borderRadius: 10,
+    elevation: 4,
+    marginBottom: 20
+  }
+
 });
