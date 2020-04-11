@@ -6,7 +6,7 @@ import CustomHeader from '../../commonComponents/CustomHeader';
 const Stack = createStackNavigator();
 const Dashboard = props => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="Feed">
       <Stack.Screen
         name="Feed"
         options={{
@@ -15,7 +15,7 @@ const Dashboard = props => {
         {props => <Feed {...props} />}
       </Stack.Screen>
       <Stack.Screen
-        name="Notification"
+        name="Notification_Feed"
         options={{
           headerShown: true,
           header: ({scene, previous, navigation}) => {
@@ -23,7 +23,7 @@ const Dashboard = props => {
               <CustomHeader
                 {...props}
                 title="Notifications"
-                viewNotification={true}
+                viewNotification={false}
                 backTo = "Feed"
               />
             );

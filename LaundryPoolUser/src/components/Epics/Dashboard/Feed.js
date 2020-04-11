@@ -89,14 +89,14 @@ const FeedView = props => {
               position: 'relative',
               flex: 1,
             }}>
-            <ServiceList />
-            {/* <ActiveOrders /> */}
+            <ServiceList {...props} />
+            <ActiveOrders />
           </View>
         </ScrollView>
       </View>
       <View style={styles.dashboardHeaderContainer}>
         <Hamburger navigation={props.navigation} />
-        <Notification {...props} color="white" />
+        <Notification {...props} backPage="Notification_Feed" color="white" />
       </View>
     </View>
   );

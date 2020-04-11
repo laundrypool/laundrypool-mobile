@@ -1,37 +1,47 @@
-import React from 'react';
-import {Text, View} from 'react-native';
-import Notification from '../Notification';
+import React, {useState, useEffect} from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import NotificationPage from '../Notification/NotificationPage';
 import CustomHeader from '../../commonComponents/CustomHeader';
+import BookingComponent from './Booking';
 
 const Stack = createStackNavigator();
 
-const BookingComponent = props => {
-  return (
-    <View
-      style={{
-        alignItems: 'center',
-      }}>
-      <Text>Booking - Coming Soon</Text>
-      <Notification {...props} />
-    </View>
-  );
-};
-
 const Booking = props => {
+  const [selectedService, setSelectedService] = useState({
+    washing: false,
+    dryCleaning: false,
+    ironing: false,
+  });
+
+  useEffect(() => {
+    setSelectedService(props.route.params.serviceTypes);
+  }, [props.route.params.serviceTypes]);
+
   return (
-    <Stack.Navigator>
+    <Stack.Navigator initialRouteName="BookingComponent">
       <Stack.Screen
         name="BookingComponent"
         options={{
           headerShown: true,
+          header: ({scene, previous, navigation}) => {
+            return (
+              <CustomHeader
+                {...props}
+                title="Select Clothes"
+                viewNotification={true}
+                backTo="Feed"
+                backPage="Notification_BookingComponent"
+              />
+            );
+          },
         }}>
-        {props => <BookingComponent {...props} />}
+        {props => (
+          <BookingComponent {...props} selectedBooking={selectedService} />
+        )}
       </Stack.Screen>
 
       <Stack.Screen
-        name="Notification"
+        name="Notification_BookingComponent"
         options={{
           headerShown: true,
           header: ({scene, previous, navigation}) => {
@@ -39,12 +49,12 @@ const Booking = props => {
               <CustomHeader
                 {...props}
                 title="Notifications"
-                viewNotification={true}
+                viewNotification={false}
+                backTo="BookingComponent"
               />
             );
           },
-        }}
-        >
+        }}>
         {props => <NotificationPage {...props} />}
       </Stack.Screen>
     </Stack.Navigator>

@@ -1,11 +1,11 @@
 import React from 'react';
-import {TouchableOpacity, Text, View} from 'react-native';
+import {TouchableOpacity, Text, View, Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {styles} from './style';
 import {ColorPallete, fonts} from '../../../Utils/StylingInfo';
-const Notification = ({navigation, color = 'primary'}) => {
+const Notification = ({navigation, color = 'primary',backPage}) => {
   const onPress = () => {
-    navigation.push('Notification', {});
+    navigation.navigate(backPage);
   };
   return (
     <TouchableOpacity style={styles.BellPosition} onPress={() => onPress()}>

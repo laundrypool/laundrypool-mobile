@@ -7,9 +7,9 @@ const NotificationPage = () => {
   return (
     <ScrollView>
       <View style={styles.notificationContainer}>
-        {/* <OrderStatusCardComponent orderId="#958546" status="Order Confirmed" fontSize="in16"/>
+        <OrderStatusCardComponent orderId="#958546" status="Order Confirmed" fontSize="in16"/>
         <OrderStatusCardComponent orderId="#958546" status="On the way" fontSize="in16"/>
-        <OrderStatusCardComponent orderId="#958546" status="Picking up" fontSize="in16"/> */}
+        <OrderStatusCardComponent orderId="#958546" status="Picking up" fontSize="in16"/>
       </View>
     </ScrollView>
   );

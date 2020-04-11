@@ -9,11 +9,13 @@ const ColorPallete = {
     disabled: '#C4C4C4',
     inputBorder: '#707070',
     textColor: '#8B8B8B',
-    red: '#FF0000'
+    red: '#FF0000',
+    counterColor: '#A8A8A8'
   },
   backgroundColors: {
     main: '#F2F2F2',
     primaryButton: '#1A7498',
+    inputField: '#EBEBEB'
   },
 };
 
@@ -23,6 +25,8 @@ const fonts = {
 };
 
 const fontSize = {
+  in10: 10,
+  in11: 11,
   in12: 12,
   in15: 15,
   in16: 16,
