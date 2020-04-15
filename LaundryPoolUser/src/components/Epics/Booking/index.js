@@ -3,6 +3,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 import NotificationPage from '../Notification/NotificationPage';
 import CustomHeader from '../../commonComponents/CustomHeader';
 import BookingComponent from './Booking';
+import BasketFooter from './BasketFooter';
 
 const Stack = createStackNavigator();
 
@@ -13,9 +14,12 @@ const Booking = props => {
     ironing: false,
   });
 
+  const serviceTypesTemp =
+    props.route.params && props.route.params.serviceTypes;
+
   useEffect(() => {
-    setSelectedService(props.route.params.serviceTypes);
-  }, [props.route.params.serviceTypes]);
+    serviceTypesTemp && setSelectedService(serviceTypesTemp);
+  }, [serviceTypesTemp]);
 
   return (
     <Stack.Navigator initialRouteName="BookingComponent">
@@ -36,7 +40,9 @@ const Booking = props => {
           },
         }}>
         {props => (
-          <BookingComponent {...props} selectedBooking={selectedService} />
+          <BasketFooter>
+            <BookingComponent {...props} selectedBooking={selectedService} />
+          </BasketFooter>
         )}
       </Stack.Screen>
 

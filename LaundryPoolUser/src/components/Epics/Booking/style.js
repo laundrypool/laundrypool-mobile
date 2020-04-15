@@ -2,6 +2,34 @@ import {StyleSheet} from 'react-native';
 import {ColorPallete, fontSize, fonts} from '../../../Utils/StylingInfo';
 
 export const styles = StyleSheet.create({
+  bookingContainerParent: {
+    flex: 1,
+  },
+  childrenContainer: {flex: 10},
+  basketContainer: {
+    flex: 1,
+    backgroundColor: ColorPallete.colors.primary,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 30,
+    alignItems: 'center',
+  },
+  basketText: {
+    flex: 3,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  basketTextStyle: {
+    fontFamily: fonts.seogeUISemiBold,
+    fontSize:fontSize.in18,
+    color: ColorPallete.colors.white
+  },
+  basketAmount: {
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  },
   counterContainer: {
     flexDirection: 'row',
     justifyContent: 'space-around',
@@ -10,13 +38,20 @@ export const styles = StyleSheet.create({
     position: 'relative',
   },
   plusMinus: {
-    top: 5,
+    top: 4,
+  },
+  bookingContainer: {
+    flex: 1,
+    width: '100%',
   },
   serviceTypeContainer: {
-    padding: 20,
+    // padding: 20,
+    paddingTop: 15,
+    paddingHorizontal: 20,
+    flex: 1,
   },
   cardCheckboxContainer: {
-    marginTop: 20,
+    marginTop: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
@@ -49,11 +84,22 @@ export const styles = StyleSheet.create({
   },
   searchBoxTabsContainer: {
     backgroundColor: ColorPallete.colors.white,
-    paddingHorizontal: 30,
+    flex: 2.5,
+    position: 'relative',
+  },
+  tabsContainerSelection: {
+    marginTop: 20,
+    backgroundColor: ColorPallete.colors.white,
+    flex: 5,
   },
   searchBox: {
-    paddingVertical: 20,
+    paddingTop: 20,
+    paddingBottom: 5,
+    paddingHorizontal: 30,
     flexDirection: 'row',
+    // borderColor:'red',
+
+    // borderWidth : 1
   },
   searchIcon: {
     height: 40,
@@ -75,19 +121,14 @@ export const styles = StyleSheet.create({
     width: '90%',
   },
   userTabsContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
+    paddingHorizontal: 10,
   },
-  userTabs: {
-    borderBottomWidth: 5,
-    borderColor: ColorPallete.colors.primary,
-    paddingBottom: 10,
-    // borderColor: 'red',
-    // borderWidth: 2,
-  },
+  userTabs: {},
   tabText: {
     textAlign: 'center',
     paddingTop: 10,
-    color: ColorPallete.colors.counterColor
-  }
+    color: ColorPallete.colors.counterColor,
+    fontSize: fontSize.in13,
+    fontFamily: fonts.seogeUISemiBold,
+  },
 });

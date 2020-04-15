@@ -32,7 +32,6 @@ const ServiceType = props => {
           Choose your type of Services
         </Text>
       </View>
-
       <View style={styles.cardCheckboxContainer}>
         <View>
           {serviceType.washing && (
