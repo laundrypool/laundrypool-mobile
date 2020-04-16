@@ -1,47 +1,37 @@
-import React, {useState, useEffect} from 'react';
-import {Text, View, Alert, Image} from 'react-native';
-import {TouchableOpacity, ScrollView} from 'react-native-gesture-handler';
-import {styles} from './style';
+import React from 'react';
+import {Text, View, Image} from 'react-native';
+import {styles} from '../style';
 import CounterInput from './CounterInput';
-import AntDesignIcon from 'react-native-vector-icons/AntDesign';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import {ColorPallete, fonts, fontSize} from '../../../Utils/StylingInfo';
-import ServiceType from './ServiceType';
-import CustomIcon from '../../../Utils/CustomIcon';
-import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
+import {ColorPallete, fonts, fontSize} from '../../../../Utils/StylingInfo';
 
 const CustomTabs = ({bucketList}) => {
   const getPathName = (bool, index) => {
     switch (index) {
       case 0:
         return !bool
-          ? require('../../../assets/app/shirt.png')
-          : require('../../../assets/app/PillowCovers.png');
+          ? require('../../../../assets/app/shirt.png')
+          : require('../../../../assets/app/PillowCovers.png');
         break;
       case 1:
         return !bool
-          ? require('../../../assets/app/Tshirt.png')
-          : require('../../../assets/app/Curtains.png');
+          ? require('../../../../assets/app/Tshirt.png')
+          : require('../../../../assets/app/Curtains.png');
         break;
       case 2:
         return !bool
-          ? require('../../../assets/app/Trousers.png')
-          : require('../../../assets/app/Aprons.png');
+          ? require('../../../../assets/app/Trousers.png')
+          : require('../../../../assets/app/Aprons.png');
         break;
       case 3:
         return !bool
-          ? require('../../../assets/app/shorts.png')
-          : require('../../../assets/app/BedSheets.png');
+          ? require('../../../../assets/app/shorts.png')
+          : require('../../../../assets/app/BedSheets.png');
         break;
     }
   };
 
-  const addCounter = e => {
-    console.log(e);
-  };
-  const decCounter = e => {
-    console.log(e);
-  };
+  const addCounter = e => {};
+  const decCounter = e => {};
 
   return (
     <View>
@@ -56,9 +46,7 @@ const CustomTabs = ({bucketList}) => {
               marginTop: 2,
               flexDirection: 'row',
               justifyContent: 'space-between',
-            }}
-            onPress={e => console.log(e)}>
-            {/* <CustomIcon name={'man'} size={30} style={{textAlign: 'center'}} /> */}
+            }}>
             <View style={styles.iconsitems}>
               <Image source={path} style={{width: 40, height: 40}} />
             </View>

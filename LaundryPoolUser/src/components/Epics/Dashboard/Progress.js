@@ -6,8 +6,8 @@ const Progress = props => {
     <View
       style={{
         position: 'relative',
-        width: 60,
-        height: 60,
+        width: props.big ? props.big : 60,
+        height: props.big ? props.big : 60,
         justifyContent: 'center',
         alignItems: 'center',
       }}>

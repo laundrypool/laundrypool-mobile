@@ -14,7 +14,7 @@ const BasketFooter = props => {
         </View>
         <TouchableOpacity
           style={styles.basketAmount}
-          onPress={() => console.log('Dpme')}>
+          onPress={() => props.navigation.navigate(props.navigateTo)}>
           <Text style={[styles.basketTextStyle]}>₹ 0.00</Text>
           <AntDesignIcon
             name={'right'}

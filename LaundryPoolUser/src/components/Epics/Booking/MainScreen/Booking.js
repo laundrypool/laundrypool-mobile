@@ -1,12 +1,11 @@
 import React, {useState, useEffect} from 'react';
 import {Text, View, TextInput} from 'react-native';
 import {ScrollView} from 'react-native-gesture-handler';
-import {styles} from './style';
-import CounterInput from './CounterInput';
+import {styles} from '../style';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
-import {ColorPallete} from '../../../Utils/StylingInfo';
+import {ColorPallete} from '../../../../Utils/StylingInfo';
 import ServiceType from './ServiceType';
-import CustomIcon from '../../../Utils/CustomIcon';
+import CustomIcon from '../../../../Utils/CustomIcon';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 import CustomTabs from './CustomTabs';
 
@@ -24,25 +23,25 @@ const BookingComponent = props => {
       index: 1,
       type: 'Men',
       lists: ['Shirt', 'Tshirt', 'Trousers', 'Shorts'],
-      icons: ['shirt','Tshirt','Trousers','shorts']
+      icons: ['shirt', 'Tshirt', 'Trousers', 'shorts'],
     },
     {
       index: 2,
       type: 'Women',
       lists: ['Shirt', 'Tshirt', 'Trousers', 'Shorts'],
-      icons: ['shirt','Tshirt','Trousers','shorts']
+      icons: ['shirt', 'Tshirt', 'Trousers', 'shorts'],
     },
     {
       index: 3,
       type: 'Kids',
       lists: ['Shirt', 'Tshirt', 'Trousers', 'Shorts'],
-      icons: ['shirt','Tshirt','Trousers','shorts']
+      icons: ['shirt', 'Tshirt', 'Trousers', 'shorts'],
     },
     {
       index: 4,
       type: 'Household',
       lists: ['Pillow covers', 'Curtains', 'Aprons', 'Bed Sheets'],
-      icons: ['PillowCovers','Curtains','Aprons','BedSheets']
+      icons: ['PillowCovers', 'Curtains', 'Aprons', 'BedSheets'],
     },
   ]);
 
@@ -178,11 +177,6 @@ const BookingComponent = props => {
             </MaterialTopTabs.Navigator>
           </View>
         </View>
-
-        {/*  */}
-        {/* <View style={styles.tabsContainerSelection}>
-          <CounterInput />
-        </View> */}
       </View>
     </ScrollView>
   );

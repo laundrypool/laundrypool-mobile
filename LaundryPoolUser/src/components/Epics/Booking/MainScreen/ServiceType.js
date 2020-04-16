@@ -1,10 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import {Text, View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {styles} from './style';
+import {styles} from '../style';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
-import {ColorPallete, fonts, fontSize} from '../../../Utils/StylingInfo';
-import CustomIcon from '../../../Utils/CustomIcon';
+import {ColorPallete, fonts, fontSize} from '../../../../Utils/StylingInfo';
+import CustomIcon from '../../../../Utils/CustomIcon';
 const ServiceType = props => {
   const [serviceType, setServiceType] = useState({
     washing: false,

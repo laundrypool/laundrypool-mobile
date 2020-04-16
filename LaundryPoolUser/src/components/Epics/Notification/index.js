@@ -3,9 +3,13 @@ import {TouchableOpacity, Text, View, Alert} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import {styles} from './style';
 import {ColorPallete, fonts} from '../../../Utils/StylingInfo';
-const Notification = ({navigation, color = 'primary',backPage}) => {
+const Notification = ({
+  navigation,
+  color = 'primary',
+  backPage = undefined,
+}) => {
   const onPress = () => {
-    navigation.navigate(backPage);
+    backPage ? navigation.push(backPage) : navigation.goBack();
   };
   return (
     <TouchableOpacity style={styles.BellPosition} onPress={() => onPress()}>

@@ -10,7 +10,8 @@ const ColorPallete = {
     inputBorder: '#707070',
     textColor: '#8B8B8B',
     red: '#FF0000',
-    counterColor: '#A8A8A8'
+    counterColor: '#A8A8A8',
+    lightborder: '#D2D2D2',
   },
   backgroundColors: {
     main: '#F2F2F2',
@@ -35,6 +36,7 @@ const fontSize = {
   in19: 19,
   in20: 20,
   in22: 22,
+  in27: 27,
 };
 
 export {ColorPallete, fonts, fontSize};

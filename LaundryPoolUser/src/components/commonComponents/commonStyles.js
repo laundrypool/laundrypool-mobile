@@ -18,6 +18,9 @@ let btnText = {
 };
 
 export const globalStyles = StyleSheet.create({
+  marginTop: 0,
+    mT0: {
+  },
   mT10: {
     marginTop: 10,
   },

@@ -1,18 +1,15 @@
 import React, {useState, useEffect} from 'react';
 import {Text, View} from 'react-native';
 import {TouchableOpacity} from 'react-native-gesture-handler';
-import {styles} from './style';
+import {styles} from '../style';
 import AntDesignIcon from 'react-native-vector-icons/AntDesign';
-import {ColorPallete, fonts, fontSize} from '../../../Utils/StylingInfo';
+import {ColorPallete, fonts, fontSize} from '../../../../Utils/StylingInfo';
 const CounterInput = ({bucketList}) => {
   const [output, setOutput] = useState(0);
   const [color, setColor] = useState(ColorPallete.colors.counterColor);
   const [selectedOne, setSelectedOne] = useState(0);
-  const [tempSelectedOne, setTempSelectedOne] = useState(selectedOne);
 
-  useEffect(() => {
-    console.log(selectedOne);
-  }, [selectedOne]);
+ 
 
   return (
     <View>
