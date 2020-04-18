@@ -16,9 +16,8 @@ const Epics = () => {
     <>
       <MaterialBottomTabs.Navigator
         activeColor={ColorPallete.colors.primary}
-        barStyle={{backgroundColor: ColorPallete.colors.white}}>
-
-
+        barStyle={{backgroundColor: ColorPallete.colors.white}}
+        initialRouteName="Dashboard">
         <MaterialBottomTabs.Screen
           name="Dashboard"
           component={Dashboard}
@@ -30,7 +29,6 @@ const Epics = () => {
             ),
           }}
         />
-
 
         <MaterialBottomTabs.Screen
           name="Booking"
@@ -48,7 +46,6 @@ const Epics = () => {
           }}
         />
 
-
         <MaterialBottomTabs.Screen
           name="MyAccount"
           component={MyAccount}
@@ -64,8 +61,6 @@ const Epics = () => {
             ),
           }}
         />
-
-
       </MaterialBottomTabs.Navigator>
     </>
   );

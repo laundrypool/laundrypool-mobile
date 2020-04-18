@@ -1,28 +1,28 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {View} from 'react-native';
 import {styles} from './style';
-import AntDesignIcon from 'react-native-vector-icons/AntDesign';
 import {ColorPallete} from '../../../Utils/StylingInfo';
-import {TouchableOpacity} from 'react-native-gesture-handler';
+import {
+  TouchableOpacity,
+  TouchableHighlight,
+} from 'react-native-gesture-handler';
+import YourBasket from './FooterComponents/YourBasket';
+import NextComponent from './FooterComponents/NextComponent';
 const BasketFooter = props => {
   return (
     <View style={styles.bookingContainerParent}>
       <View style={styles.childrenContainer}>{props.children}</View>
-      <View style={styles.basketContainer}>
-        <View style={styles.basketText}>
-          <Text style={[styles.basketTextStyle]}>Your basket</Text>
+      <TouchableHighlight
+        activeOpacity={0.6}
+        underlayColor={ColorPallete.colors.primary}
+        onPress={() => props.navigation.navigate(props.navigateTo)}
+        style={{
+          backgroundColor: ColorPallete.colors.primary,
+        }}>
+        <View style={styles.basketContainer}>
+          {props.contents === '1' ? <YourBasket /> : <NextComponent />}
         </View>
-        <TouchableOpacity
-          style={styles.basketAmount}
-          onPress={() => props.navigation.navigate(props.navigateTo)}>
-          <Text style={[styles.basketTextStyle]}>₹ 0.00</Text>
-          <AntDesignIcon
-            name={'right'}
-            size={22}
-            color={ColorPallete.colors.white}
-          />
-        </TouchableOpacity>
-      </View>
+      </TouchableHighlight>
     </View>
   );
 };

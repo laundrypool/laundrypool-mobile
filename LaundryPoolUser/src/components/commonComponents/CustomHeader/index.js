@@ -9,8 +9,12 @@ const CustomHeader = props => {
   return (
     <View style={globalStyles.headerBackground}>
       <View style={globalStyles.headerIcon}>
-      
-        <TouchableOpacity onPress={() =>  props.backTo ? props.navigation.navigate(props.backTo) : props.navigation.goBack()}>
+        <TouchableOpacity
+          onPress={() => {
+            props.backTo
+              ? props.navigation.navigate(props.backTo)
+              : props.navigation.goBack();
+          }}>
           <Icon
             style={{textAlign: 'center'}}
             color={ColorPallete.colors.primary}
@@ -21,7 +25,7 @@ const CustomHeader = props => {
       </View>
 
       <Text style={globalStyles.headerText}>{props.title}</Text>
-      {props.viewNotification && <Notification  {...props} />}
+      {props.viewNotification && <Notification {...props} />}
     </View>
   );
 };

@@ -7,11 +7,12 @@ export const styles = StyleSheet.create({
   },
   childrenContainer: {flex: 10},
   basketContainer: {
-    flex: 1,
-    backgroundColor: ColorPallete.colors.primary,
+    // flex: 1,
+    // backgroundColor: ColorPallete.colors.primary,
     flexDirection: 'row',
     justifyContent: 'space-between',
     paddingHorizontal: 30,
+    paddingVertical: 15,
     alignItems: 'center',
   },
   basketText: {

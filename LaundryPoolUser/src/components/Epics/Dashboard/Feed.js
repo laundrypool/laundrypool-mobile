@@ -90,7 +90,7 @@ const FeedView = props => {
               flex: 1,
             }}>
             <ServiceList {...props} />
-            <ActiveOrders />
+            <ActiveOrders {...props} />
           </View>
         </ScrollView>
       </View>

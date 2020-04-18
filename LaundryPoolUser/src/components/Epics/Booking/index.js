@@ -5,6 +5,7 @@ import CustomHeader from '../../commonComponents/CustomHeader';
 import BookingComponent from './MainScreen/Booking';
 import BasketFooter from './BasketFooter';
 import DateTime from './DateTime/DateTime';
+import AllOrders from './AllOrders';
 
 const Stack = createStackNavigator();
 
@@ -41,7 +42,10 @@ const Booking = props => {
           },
         }}>
         {props => (
-          <BasketFooter navigateTo="DateTime_BookingComponent" {...props}>
+          <BasketFooter
+            contents="1"
+            navigateTo="DateTime_BookingComponent"
+            {...props}>
             <BookingComponent {...props} selectedBooking={selectedService} />
           </BasketFooter>
         )}
@@ -82,10 +86,33 @@ const Booking = props => {
           },
         }}>
         {props => (
-          <BasketFooter navigateTo="DateTime_BookingComponent" {...props}>
+          <BasketFooter
+            contents="2"
+            navigateTo="DateTime_BookingComponent"
+            {...props}>
             <DateTime {...props} />
           </BasketFooter>
         )}
+      </Stack.Screen>
+
+      <Stack.Screen
+        name="AllOrders_BookingComponent"
+        options={{
+          headerShown: true,
+          header: ({scene, previous, navigation}) => {
+            return (
+              <CustomHeader
+                {...props}
+                navigation={navigation}
+                title="Orders"
+                viewNotification={true}
+                backPage="Notification_BookingComponent"
+                backTo={scene.router ? scene.router.name : 'BookingComponent'}
+              />
+            );
+          },
+        }}>
+        {props => <AllOrders {...props} />}
       </Stack.Screen>
     </Stack.Navigator>
   );
